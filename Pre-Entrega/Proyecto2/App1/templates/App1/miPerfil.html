@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #mi-elemento-fijo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="mi-elemento-fijo">
+    {% extends "App1/padre.html" %}
+  </div>
+    {% load static %}
+    {% block contenidoQueCambia %}
+    
+    <style>
+        #contenedor-lista {
+          padding-top: 60px; /* O utiliza margin-top: 20px; según tus necesidades */
+        }
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor-lista">
+        <div id="contenedor-formulario">
+            <!-- Team Section -->
+                  <!-- font icons -->
+                  <link rel="stylesheet" href="{% static 'App1/assets/vendors/themify-icons/css/themify-icons.css'%}">
+                  <!-- Bootstrap + Creative Studio main styles -->
+                  <link rel="stylesheet" href="{% static 'App1/assets/css/creative-studio.css' %}">
+      <center>
+      </style>
+          <div class="col-sm-6 col-md-4">
+  
+              <div class="card text-center mb-4">
+                  <div class="card-body">
+                      <h6 class="small text-primary font-weight-bold">Alumno</h6>
+                {% if request.user.is_authenticated %}
+                      {% with avatares=request.user.avatar_set.all %}
+                          {% if avatares %}
+                            <img class="card-img-top inset" src="{{avatares.0.imagen.url}}">
+                          {% endif %}
+                            <p> </p>
+                            <a class="navbar-brand" href="#nada">-------------------------------------------</a>
+                            <p class="text-muted small mb-4 mb-lg-0">{{ request.user.username }}</p>
+                            <p class="text-muted small mb-4 mb-lg-0">{{ request.user.email }}</p>
+                            <p class="text-muted small mb-4 mb-lg-0">{{ request.user.first_name }}</p>
+                            <p class="text-muted small mb-4 mb-lg-0">{{ request.user.last_name }}</p>
+                      {% endwith %}
+                {%endif%}
+                      <li class="nav-item">
+                        <a class="navbar-brand" href="{% url 'editarPerfil' %}">Editar Perfil</a>
+                    </li>
+                  </div>
+              </div>
+          </div>
+
+  <!-- core  -->
+  <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+  <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+  
+  <!-- bootstrap affix -->
+  <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+  
+  <!-- Creative Studio js -->
+  <script src="assets/js/creative-studio.js"></script>
+    </div>
+  </body>
+  </html>
+</body>
+</html>
+{% endblock %}

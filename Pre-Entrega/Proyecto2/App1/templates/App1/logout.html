@@ -1,0 +1,44 @@
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        <!-- Page Header -->
+        <header class="header">
+            <div class="overlay">
+
+                <h1 class="title"> 
+                    <div class="text-center">
+                        <img height="40px" src="{{url}}">
+                        <h3> Bienvenido {{user.username}}</h3>
+                        <h3> Esta es mi primera pagina web!</h3>
+                    </div>
+                </h1>                  
+            </div>      
+        </header>
+        
+    <!-- Team Section -->
+<!-- Modal -->
+<!-- end of modal -->
+
+<!-- Blog Section -->
+
+
+<!-- core  -->
+<script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+<script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+<!-- bootstrap affix -->
+<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+<!-- Creative Studio js -->
+<script src="assets/js/creative-studio.js"></script>
+
+</body>
+</html>
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+
+{% endblock %}

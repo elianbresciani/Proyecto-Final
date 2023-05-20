@@ -1,0 +1,57 @@
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        <!-- Page Header -->
+        <header class="header">
+            <div class="overlay">
+
+                <h1 class="title"> 
+                    <div class="text-center">
+                        {% if request.user.is_authenticated %}
+                                {% with avatares=request.user.avatar_set.all %}
+                                    {% if avatares %}
+                                        <img height="50px" src="{{avatares.0.imagen.url}}">
+                                    {% endif %}
+                                    <p class="text-muted small mb-4 mb-lg-0">Bienvenido {{ request.user.username }}</p>
+                                {% endwith %}
+                            {% endif %}
+                        <h3> Esta es mi primera pagina web!</h3>
+                    </div>
+                </h1>                  
+            </div>      
+        </header>
+        
+    <!-- Team Section -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+    </div>
+</div>
+</div>
+<!-- end of modal -->
+
+<!-- Blog Section -->
+
+
+<!-- core  -->
+<script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+<script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+<!-- bootstrap affix -->
+<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+<!-- Creative Studio js -->
+<script src="assets/js/creative-studio.js"></script>
+
+</body>
+</html>
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+
+    {% endblock %}

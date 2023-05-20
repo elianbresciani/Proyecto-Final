@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #mi-elemento-fijo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="mi-elemento-fijo">
+{% extends "App1/padre.html" %}
+  </div>
+  {% load static %}
+
+  {% block contenidoQueCambia %}
+    <style>
+        #contenedor-formulario {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+
+    <div id="contenedor-formulario">
+            <!-- Team Section -->
+                  <!-- font icons -->
+                  <link rel="stylesheet" href="{% static 'App1/assets/vendors/themify-icons/css/themify-icons.css'%}">
+                  <!-- Bootstrap + Creative Studio main styles -->
+                  <link rel="stylesheet" href="{% static 'App1/assets/css/creative-studio.css' %}">
+      <center>
+      </style>
+          <div class="col-sm-6 col-md-4">
+  
+              <div class="card text-center mb-4">
+                  <img class="card-img-top inset" src="{% static 'App1/assets/imgs/elian.jpg' %}">
+                  <div class="card-body">
+                      <h6 class="small text-primary font-weight-bold">Alumno</h6>
+                      <h5 class="card-title">Elian Bresciani</h5>
+                      <p>Me llamo Elian, Tengo 22 años, estudio programacion en la UTN, Este es mi segundo curso de Python, el primero lo hice en Capacitarte.org, lo tome mas para ver si me gustaba lo que es programar y aca estamos.</p>
+                      <div class="socials">
+                          <a href="https://www.facebook.com/elian.bresciani.3760/"><i class="ti-facebook"></i> </a>
+                          <a href="https://github.com/elianbresciani"><i class="ti-github"></i></a>
+                          <a href="https://www.instagram.com/elianbresciani/"><i class="ti-instagram"></i></a>
+                          <a href="https://twitter.com/Elian_bresciani"><i class="ti-twitter"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+  <!-- core  -->
+  <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+  <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+  
+  <!-- bootstrap affix -->
+  <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+  
+  <!-- Creative Studio js -->
+  <script src="assets/js/creative-studio.js"></script>
+    </div>
+  </body>
+  </html>
+  <!--Aquí va lo que cambia, y lo asociado a está vista :) -->    
+  {% endblock %}

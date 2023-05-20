@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #mi-elemento-fijo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="mi-elemento-fijo">
+    {% extends "App1/padre.html" %}
+  </div>
+    {% block contenidoQueCambia %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #contenedor-formulario {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+<body>
+    <div id="contenedor-formulario">
+        <div class="container">
+            <center>
+            <form action="" method="POST">{% csrf_token %}
+                <!-- Acá está la magia de Django-->
+                <table>
+                    <h1>Formulario - Editar Perfil</h1>
+                    <h1>De {{usuario}}</h1>
+                    {{ miFormulario.as_table }}
+        
+                </table>
+                <input type="submit", value="Enviar">
+            </form>  
+        </div>
+    </center>
+    </div>
+    </body>
+</html>
+{% endblock %}

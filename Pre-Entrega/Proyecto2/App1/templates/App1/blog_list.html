@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #mi-elemento-fijo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="mi-elemento-fijo">
+    {% extends "App1/padre.html" %}
+  </div>
+    {% block contenidoQueCambia %}
+    
+    <style>
+        #contenedor-lista {
+          padding-top: 60px; /* O utiliza margin-top: 20px; según tus necesidades */
+        }
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor-lista">
+        <ul>
+          <p></p>
+          <p></p>
+        </ul>
+      </div>
+    <h1>Blogs</h1>
+    <ul>
+        {% for blog in object_list %}
+            <li>
+                <p>Titulo: {{ blog.titulo }}</p>
+                <p>Autor: {{blog.autor}}</p>
+                <p></p>
+                    <a href="{% url 'Detail' blog.id %}">Leer Mas</a>
+                    <a href="{% url 'Edit' blog.id %}">Editar</a>
+                    {% if request.user.username == blog.autor %}
+                        <a href="{% url 'Delete' blog.id %}">Borrar</a>
+                    {% endif %}
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
+{% endblock %}
